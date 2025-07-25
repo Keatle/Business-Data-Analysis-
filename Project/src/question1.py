@@ -1,6 +1,4 @@
-#  1.1      Use Python to perform the appropriate data cleaning and preprocessing steps 
-# needed to get your data into a more usable format.
-
+# Perform data cleaning and preprocessing steps 
 
 import sqlite3 # for the .db file reading 
 import pandas as pd
@@ -28,15 +26,13 @@ table2023["Year"] = 2023
 
 db_pool.close() 
 
-        # 1.1.1 ) Combine the data from all three years into a single dataset by selecting only the relevant 
-# columns and adding an indicator column to specify the year of each survey
+        # 1.1.1 ) Combine the data from all three years into a single dataset 
 
 combinedTables = pd.concat([table2021, table2022, table2023], ignore_index=True)
 print("Print first answer")
 
 
-        # 1.1.2 )  Standardize the Country column, ensuring consistency in naming for countries with 
-# variations
+        # 1.1.2 ) Standardize the Country column
 
 country_mapping = {
     "United Kingdom of Great Britain and Northern Ireland": "United Kingdom", "United States of America": "United States",
@@ -49,8 +45,8 @@ country_mapping = {
 combinedTables["Country"] = combinedTables["Country"].replace(country_mapping)
 
 
-        # 1.1.3)  Handle missing data and subsetting the dataset to include a manageable selection of countries to facilitate clear visualizations and analysis.
-#  Justify your choices for missing value treatment and country selection
+        # 1.1.3)  Handle missing data and subsetting the dataset to include a manageable selection of countries .
+
 
     # Filter the countries 
 selected_countries = ["United States", "India", "Germany", "United Kingdom", "Canada", 
@@ -86,8 +82,7 @@ replace_mb = {
 droped_rtable = droped_rtable.replace(replace_mb)
 
 
-        # 1.1.5)  Reclassify the EdLevel column into broader educational 
-    # categories to create concise, interpretable groupings.
+        # 1.1.5)  Reclassify the EdLevel column into broader educational categories
 
 replace_el = {
     "Primary/elementary school": "Primary Education",
