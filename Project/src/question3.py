@@ -1,5 +1,4 @@
 #
-##          Question 3
 ##  Sentiment Analysis: ChatGPT user reviews
 #
 import pandas as pd 
@@ -18,13 +17,11 @@ sia = SentimentIntensityAnalyzer()
 
 # 3.1. Preprocess data and perform sentiment analysis on 
 # the content column to categorize user reviews as positive, neutral, or negative. 
-# Save the sentiments for each review in a new column called “Sentiment”
 
 file_path= Path(r"../Project/data/chatgpt_reviews.csv")
 
 df = pd.read_csv(file_path)
 print(df['content'].head(5))
-
 
 
 ##             Preprocess data
@@ -72,11 +69,9 @@ df.ffill(inplace=True)#forward fill :appVersion and reviewCreatedVersion null en
 
 
 
-###
+
 ##      3.2: Visualize liked vs Disliked Features
-##       highlight features or issues that are frequently mentioned in both positive and negative reviews.
-##       Additionally, identify which aspects users seem to love about ChatGPT vs which features they dislike.
-###
+
 
 
 #           Spilt Reviews 
@@ -123,9 +118,8 @@ top_neg = fdist_neg.most_common(10)
 
 
 
-#
-#       Create dataframe
-#
+
+#       Create dataframe for each category
 
 df_pos = pd.DataFrame(top_pos, columns=["word", "count_pos"])
 df_neg = pd.DataFrame(top_neg, columns=["word", "count_neg"])
@@ -155,7 +149,6 @@ plt.show()
 
 ###
 ##      3.3. Critically discuss how user satisfaction scores have changed over time.
-##       Motivate your answer using a line plot.
 ###
 
 
@@ -219,19 +212,3 @@ And some feedback pointed out that responses can feel too generic or not tailore
 For GitHub’s chatbot, this means it is important to prioritize accurate content delivery, test thoroughly before releasing updates, 
 and explore ways to personalize conversations more based on user history or preferences.
 """
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
