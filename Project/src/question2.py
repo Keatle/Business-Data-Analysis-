@@ -3,14 +3,14 @@ import sqlite3
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-#2.1 Use visualizations and descriptive statistics to explore the dataset and answer the following questions. 
-# Provide clear insights to support your analysis.
+# Use visualizations and descriptive statistics to explore the dataset 
 
 path = Path(r"..\Project\data\Q1_Output.db")
 
     # 1. Demographics and Roles
-                # 1. How has the number of users in each MainBranch category changed over three years?
-                # Users in MainBranch 
+# 1. How has the number of users in each MainBranch category changed over three years?
+                
+# Users in MainBranch 
 
 conn = sqlite3.connect(path)
 
@@ -182,10 +182,6 @@ plt.ylabel('Count')
 plt.xticks(rotation= 45, ha= 'right')
 plt.tight_layout()
 plt.show()
- 
-
-
-
 
 
        ### LANGUAGES ###
